@@ -1,0 +1,251 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+/************************************************************/
+/************************************************************/
+html, body {margin: 0; padding: 0; overflow:hidden;}
+/************************************************************/
+#head {
+    top: 0;
+    height: 70px;
+    width: 100%;
+    background-color: black;
+    z-index: 999;
+    position: fixed;
+}
+#head h1 {
+    position: relative;
+    text-align: center;
+    font-family: "Vollkorn", serif;
+}
+.headLogin{
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    position: fixed;
+    left: 2%;
+    top: 21.5px;
+    height: 27px;
+    width: 35px;
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity 0.25s ease;
+}
+.headMenu {
+    position: fixed;
+    top: 21.5px;
+    right: 2%;
+    height: 27px;
+    width: 35px;
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity 0.25s ease;
+}
+.headMenu:hover {
+    opacity: 0.7;
+}
+.headMenu.active .top {
+    transform: translateY(11px) translateX(0) rotate(45deg);
+    background: #FFF;
+}
+.headMenu.active .middle {
+    opacity: 0;
+    background: #FFF;
+}
+.headMenu.active .bottom {
+    transform: translateY(-11px) translateX(0) rotate(-45deg);
+    background: #FFF;
+}
+.headMenu span {
+    background: white;
+    border: none;
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.35s ease;
+    cursor: pointer;
+}
+.headMenu span:nth-of-type(2) {
+    top: 11px;
+}
+.headMenu span:nth-of-type(3) {
+    top: 22px;
+}
+.headMenuOverlay {
+    position: fixed;
+    background: grey;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s, visibility 0.35s, height 0.35s;
+    overflow: hidden;
+}
+.headMenuOverlay.open {
+    opacity: 0.9;
+    visibility: visible;
+    height: 100%;
+}
+.headMenuOverlay.open li {
+    animation: fadeInRight 0.5s ease forwards;
+    animation-delay: 0.35s;
+}
+.headMenuOverlay.open li:nth-of-type(2) {
+    animation-delay: 0.4s;
+}
+.headMenuOverlay.open li:nth-of-type(3) {
+    animation-delay: 0.45s;
+}
+.headMenuOverlay.open li:nth-of-type(4) {
+    animation-delay: 0.5s;
+}
+.headMenuOverlay nav {
+    position: relative;
+    height: 70%;
+    top: 40%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    font-family: "Vollkorn", serif;
+    font-weight: 400;
+    text-align: center;
+}
+.headMenuOverlay ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 100%;
+}
+.headMenuOverlay ul li {
+    display: block;
+    margin-top: 250%;
+    height: calc(100% / 4);
+    min-height: 50px;
+    position: relative;
+    opacity: 0;
+}
+.headMenuOverlay ul li a {
+    display: block;
+    position: relative;
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+    overflow: hidden;
+}
+.headMenuOverlay ul li a:hover:after, .headMenuOverlay ul li a:focus:after, .headMenuOverlay ul li a:active:after {
+    width: 100%;
+}
+.headMenuOverlay ul li a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    transform: translateX(-50%);
+    height: 3px;
+    background: #FFF;
+    transition: 0.35s;
+}
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        left: 20%;
+    }
+    100% {
+        opacity: 1;
+        left: 0;
+    }
+}
+/************************************************************/
+#second{
+    margin: 50px;
+    position:relative;
+    top:70px;
+}
+#second h1{
+    font-size: 30px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+}
+table{
+    width:100%;
+    table-layout: fixed;
+}
+.tbl-header{
+    background-color: rgba(255,255,255,0.3);
+}
+.tbl-content{
+	te
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+th{
+    padding: 20px 15px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+td{
+    padding: 15px;
+    text-align: center;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 18px;
+    color: white;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+#list1, .list1{
+	width:100px;
+}
+#list2, .list2{
+	width:100px;
+}
+.list3{
+	
+}
+.list4{
+	
+}
+#list5, .list5{
+	width:100px;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+body{
+    background: -webkit-linear-gradient(left, #14714a, #13565c);
+    background: linear-gradient(to right, #14714a, #13565c);
+    font-family: 'Roboto', sans-serif;
+}
+#paging{
+	width:100%;
+	height:25px;
+	padding : 10px 0;
+	margin: 25px auto;
+	text-align : center;
+}
+#paging a:hover{
+	cursor:pointer;
+}
+.soListNumber{
+	margin: 15px;
+}
+::-webkit-scrollbar {
+    width: 6px;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+} 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+/************************************************************/

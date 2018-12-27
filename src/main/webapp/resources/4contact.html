@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Title </title>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/jquery.easeScroll.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+	<script type="text/javascript">
+        $("html").easeScroll();
+        $(document).ready(function(){
+            $("#toggle").click(function() {
+                $(this).toggleClass("active");
+                $("#overlay").toggleClass("open");
+            });
+        });
+    </script>
+    <style>
+    html, body {margin: 0; padding: 0;}
+    #head {
+        top: 0;
+        height: 70px;
+        width: 100%;
+        background-color: black;
+        z-index: 999;
+        position: fixed;
+    }
+    @import url(https://fonts.googleapis.com/css?family=Vollkorn|Roboto);
+    h1 {
+        position: relative;
+        text-align: center;
+        font-family: "Vollkorn", serif;
+    }
+    .headMenu {
+        position: fixed;
+        top: 21.5px;
+        right: 2%;
+        height: 27px;
+        width: 35px;
+        cursor: pointer;
+        z-index: 100;
+        transition: opacity 0.25s ease;
+    }
+    .headMenu:hover {
+        opacity: 0.7;
+    }
+    .headMenu.active .top {
+        transform: translateY(11px) translateX(0) rotate(45deg);
+        background: #FFF;
+    }
+    .headMenu.active .middle {
+        opacity: 0;
+        background: #FFF;
+    }
+    .headMenu.active .bottom {
+        transform: translateY(-11px) translateX(0) rotate(-45deg);
+        background: #FFF;
+    }
+    .headMenu span {
+        background: white;
+        border: none;
+        height: 5px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.35s ease;
+        cursor: pointer;
+    }
+    .headMenu span:nth-of-type(2) {
+        top: 11px;
+    }
+    .headMenu span:nth-of-type(3) {
+        top: 22px;
+    }
+    .headMenuOverlay {
+        position: fixed;
+        background: grey;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.35s, visibility 0.35s, height 0.35s;
+        overflow: hidden;
+    }
+    .headMenuOverlay.open {
+        opacity: 0.9;
+        visibility: visible;
+        height: 100%;
+    }
+    .headMenuOverlay.open li {
+        animation: fadeInRight 0.5s ease forwards;
+        animation-delay: 0.35s;
+    }
+    .headMenuOverlay.open li:nth-of-type(2) {
+        animation-delay: 0.4s;
+    }
+    .headMenuOverlay.open li:nth-of-type(3) {
+        animation-delay: 0.45s;
+    }
+    .headMenuOverlay.open li:nth-of-type(4) {
+        animation-delay: 0.5s;
+    }
+    .headMenuOverlay nav {
+        position: relative;
+        height: 70%;
+        top: 40%;
+        transform: translateY(-50%);
+        font-size: 50px;
+        font-family: "Vollkorn", serif;
+        font-weight: 400;
+        text-align: center;
+    }
+    .headMenuOverlay ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        display: inline-block;
+        position: relative;
+        height: 100%;
+    }
+    .headMenuOverlay ul li {
+        display: block;
+        margin-top: 20px;
+        height: calc(100% / 4);
+        min-height: 50px;
+        position: relative;
+        opacity: 0;
+    }
+    .headMenuOverlay ul li a {
+        display: block;
+        position: relative;
+        color: #FFF;
+        font-weight: bold;
+        text-decoration: none;
+        overflow: hidden;
+    }
+    .headMenuOverlay ul li a:hover:after, .headMenuOverlay ul li a:focus:after, .headMenuOverlay ul li a:active:after {
+        width: 100%;
+    }
+    .headMenuOverlay ul li a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0%;
+        transform: translateX(-50%);
+        height: 3px;
+        background: #FFF;
+        transition: 0.35s;
+    }
+    @keyframes fadeInRight {
+        0% {
+            opacity: 0;
+            left: 20%;
+        }
+        100% {
+            opacity: 1;
+            left: 0;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="head">
+        <div class="headMenu" id="toggle">
+            <span class="top"></span>
+            <span class="middle"></span>
+            <span class="bottom"></span>
+        </div>
+
+        <div class="headMenuOverlay" id="overlay">
+            <nav class="overlay-menu">
+                <ul>
+                    <li><a href="0home.html">Home</a></li>
+                    <li><a href="1about.html">About</a></li>
+                    <li><a href="2information.html">Information</a></li>
+                    <li><a href="3analytics.html">Analytics</a></li>
+                    <li><a href="4contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

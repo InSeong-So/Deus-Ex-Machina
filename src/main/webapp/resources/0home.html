@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Deus Ex Machina </title>
+<!-- 	js 파일		-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easeScroll.js"></script>
+<!-- 	구글 차트 라이브러리(시각화)		-->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- 	다음 Map Api		-->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2e8ab3a6cd0226c0c14ba8e8ccc4b9bb&libraries=services,clusterer,drawing"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black">
+	<link rel="stylesheet" href="css/home.css">
+<!--  	스크립트 정리		-->
+	<script src="js/home.js"></script>
+</head>
+<body>
+    <div id="head">
+        <div class="buttons" style="display:none;">
+	        <button class="raise">Home</button>
+	        <button class="raise">Introduce</button>
+	        <button class="raise">Select</button>
+	        <button class="raise">Comment</button>
+	    </div>
+        <div class="headMenu" id="toggle" style="display:none;">
+            <span class="top"></span>
+            <span class="middle"></span>
+            <span class="bottom"></span>
+        </div>
+        <div class="headMenuOverlay" id="overlay">
+            <nav class="overlay-menu">
+                <ul>
+<!--                     <li><a href="0home.html" data-transition="fade">Home</a></li> -->
+<!--                     <li><a href="1about.html" data-transition="fade">About</a></li> -->
+                    <li><a href="2information.html" data-transition="fade">Information</a></li>
+<!--                     <li><a href="3analytics.html" data-transition="fade">Analytics</a></li> -->
+<!--                     <li><a href="4contact.html" data-transition="fade">Contact</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div id="first" style="background: url(img/headImg4.gif) no-repeat 50% 50%; background-size: cover; background-attachment: fixed;">
+        <div id="firstFont">
+            <h1>Deus Ex Machina</h1>
+            <h2>Perfect Arrest Through Analysis</h2>
+        </div>
+        <div id="blink">
+			<svg class="svg-wrapper" width="71" height="71" viewBox="0 0 71 71" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<mask id="fade-in">
+				    	<path class="filler" fill="#00" d="M35.355 70.71L0 35.357 35.355 0 70.71 35.356z"/>
+						<path class="showme" id="showme" fill="#fff" stroke-width="5px" d="M35.355 70.71L0 35.357 35.355 0 70.71 35.356z"/>
+					</mask>
+				</defs>
+			  	<g class="scroll-icon-group" id="scroll-button" fill="none" fill-rule="evenodd">
+			    	<path mask="url(#fade-in)" class="filler" fill="white" d="M35.355 70.71L0 35.357 35.355 0 70.71 35.356z"/>
+			    	<path class="framer" fill="transparent" stroke-width="3px" stroke="white" d="M35.355 70.004L.707 35.356    35.355.708l34.65 34.648z"/>
+			    	<g stroke-linecap="round" stroke="#FBFBFB" stroke-linejoin="round">
+			      		<path d="M30 30l4.995 4.995 4.973-4.972M30 35l4.995 4.995 4.973-4.972"/>
+			    	</g>
+			  	</g>
+			</svg>
+        </div>
+        <div id="firstBlack"></div>
+    </div>
+    <div id="insertSecond">
+	    <div class="ism">
+			<div class="ismc">
+			    <div class="ismpr">
+			        <div class="meta">
+			            <h2>IN SEONG</h2>
+			            <div class="ismp">Designer & Developer</div>
+			            <div class="social"><a href="https://www.facebook.com/"><i class="fa fa-facebook-square"></i></a><a href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a><a href="gmail.com"><i class="fa fa-envelope"></i></a></div>
+			        </div>
+			        <div class="ismo"></div>
+			    </div>
+			    <div class="ismp2">
+			        <h2 style="color:grey;">Welcome! this page, </h1>
+			        <h1 style="color:black;">Deus Ex Machina</h1>
+			        <p>Solve it with crime profiling!</p>
+			        <p>The medical institution reorganizes the psychological environment through hypnosis for witnesses and victims who remember the incident through oblivion such as psychological trauma, mental shock, and provides evidence and clues necessary to solve the crime.</p>
+			    </div>
+			</div>
+		</div>
+    </div>
+    <div id="second">
+        <div class="secondBoard">
+            <div class="secondBoard_container">
+                <a class="secondB">
+                    <div class="secondB_content" style="background-image: url(img/secondImg.jpg); background-size: cover;">
+                        <h3 class="secondB_title" id="sexOffender">성범죄자 찾기</h3>
+                    </div>
+                </a>
+                <a class="secondB">
+                    <div class="secondB_content" style="background-image: url(img/secondImg2.jpg); background-size: cover;">
+                        <h3 class="secondB_title" id="ciriminalAnalytics">2016년 범죄 분석</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="third">
+		<div id="containerHaed">
+    		<h1 class="containerHaedline">DO FIND SEXOFFENDER
+				<div class="slash"></div>
+    		</h1>
+    	</div>
+    	<div class="container">
+	        <div class="containerAtr" id="containerLeft">
+	        	<div id="map"></div>
+	        </div>
+	        <div class="containerAtr" id="containerRight">
+	        	<form id="containerSearch">
+	        		<input type="text" id="so-name" placeholder="지역을 입력하세요.">
+	        		<button type="submit" id="so-search">검색</button>
+	        	</form>
+				<section class="searchButton">
+				    <div class="toggle-button toggle-button--maa">
+				        <input id="toggleButton7" name="radio3" type="radio" value="지역" checked="true">
+				        <label for="toggleButton7" data-text="지역"></label>
+				        <div class="toggle-button__icon"></div>
+				    </div>
+				    <div class="toggle-button toggle-button--maa">
+				        <input id="toggleButton8" name="radio3" type="radio" value="이름">
+				        <label for="toggleButton8" data-text="이름"></label>
+				        <div class="toggle-button__icon"></div>
+				    </div>
+				    <div class="toggle-button toggle-button--maa">
+				        <input id="toggleButton9" name="radio3" type="radio" value="지역/이름">
+				        <label for="toggleButton9" data-text="지역/이름"></label>
+				        <div class="toggle-button__icon"></div>
+				    </div>
+				</section>
+	        	<div id="containerResult">
+					<table class="type08">
+					    <thead>
+					    <tr>
+					        <th scope="cols">이름</th>
+					        <th scope="cols">현재 거주지</th>
+					        <th scope="cols">공개일자</th>
+					    </tr>
+					    </thead>
+					    <tbody>
+					    <tr class="soSer">
+					        <th scope="row" class="roAl"></th>
+					        <td class="tdAl"></td>
+					        <td class="centerAl"></td>
+					    </tr>
+					    <tr class="soSer">
+					        <th scope="row" class="roAl"></th>
+					        <td class="tdAl"></td>
+					        <td class="centerAl"></td>
+					    </tr>
+					    <tr class="soSer">
+					        <th scope="row" class="roAl"></th>
+					        <td class="tdAl"></td>
+					        <td class="centerAl"></td>
+					    </tr>
+					    <tr class="soSer">
+					        <th scope="row" class="roAl"></th>
+					        <td class="tdAl"></td>
+					        <td class="centerAl"></td>
+					    </tr>
+					    <tr class="soSer">
+					        <th scope="row" class="roAl"></th>
+					        <td class="tdAl"></td>
+					        <td class="centerAl"></td>
+					    </tr>
+					    <tr class="soSer">
+					        <th scope="row" class="roAl"></th>
+					        <td class="tdAl"></td>
+					        <td class="centerAl"></td>
+					    </tr>
+					    <tr class="soSer">
+					        <th scope="row" class="roAl"></th>
+					        <td class="tdAl"></td>
+					        <td class="centerAl"></td>
+					    </tr>
+						</tbody>
+					</table>
+					<div id="paging"></div>
+	        	</div>
+	        </div>
+        </div>
+        <div id="containerBottom">
+			<a class="cta">
+	  			<span>Click me</span>
+			</a>
+		</div>
+    </div>
+    <div id="fourth">
+        <div class="fourthMain">
+            <header id="label">
+                <label for="slide-1-trigger" id="label1" name="crarea"></label>
+                <label for="slide-2-trigger" id="label2" name="cras"></label>
+                <label for="slide-3-trigger" class="labelMenu" id="label3" name="crday"></label>
+                <label for="slide-4-trigger" class="labelMenu" id="label4" name="creducational"></label>
+                <label for="slide-5-trigger" class="labelMenu" id="label5" name="crhideout"></label>
+                <label for="slide-6-trigger" class="labelMenu" id="label6" name="crjob"></label>
+                <label for="slide-7-trigger" class="labelMenu" id="label7" name="crmotive"></label>
+                <label for="slide-8-trigger" class="labelMenu" id="label8" name="crtime"></label>
+            </header>
+			<div id="fourthTest">
+				<ul>
+					<li><a class="btn btn1">BarChart</a></li>
+					<li><a class="btn btn1">ColumnChart</a></li>
+					<li><a class="btn btn1">PieChart</a></li>
+					<li><a class="btn btn1">ComboChart</a></li>
+					<li><a class="btn btn1">BubbleChart</a></li>
+				</ul>
+			</div>
+        	<input id="slide-1-trigger" type="radio" name="slides" checked>
+	            <section class="fourthMainSlide fourthMainSlide-one">
+	                <div class="chartList barChart" id="chartList1"></div>
+	            </section>
+        	<input id="slide-2-trigger" type="radio" name="slides">
+	            <section class="fourthMainSlide fourthMainSlide-two">
+	                <div class="chartList barChart" id="chartList2"></div>
+	            </section>
+        	<input id="slide-3-trigger" type="radio" name="slides">
+	            <section class="fourthMainSlide fourthMainSlide-three">
+	                <div class="chartList barChart" id="chartList3"></div>
+	            </section>
+        	<input id="slide-4-trigger" type="radio" name="slides">
+	            <section class="fourthMainSlide fourthMainSlide-four">
+	               <div class="chartList barChart" id="chartList4"></div>
+	            </section>
+        	<input id="slide-5-trigger" type="radio" name="slides">
+	            <section class="fourthMainSlide fourthMainSlide-five">
+	                <div class="chartList barChart" id="chartList5"></div>
+	            </section>
+        	<input id="slide-6-trigger" type="radio" name="slides">
+	            <section class="fourthMainSlide fourthMainSlide-six">
+	                <div class="chartList barChart" id="chartList6"></div>
+	            </section>
+        	<input id="slide-7-trigger" type="radio" name="slides">
+	            <section class="fourthMainSlide fourthMainSlide-seven">
+	                <div class="chartList barChart" id="chartList7"></div>
+	            </section>
+        	<input id="slide-8-trigger" type="radio" name="slides">
+	            <section class="fourthMainSlide fourthMainSlide-eight">
+	                <div class="chartList barChart" id="chartList8"></div>
+	            </section>
+        </div>
+    </div>
+    <div id="fifth">
+		<div class="comments">
+	        <div class="comment-wrap">
+	            <div class="commentsPhoto">
+	                <div class="commentsAvatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg')"></div>
+	            </div>
+	            <div class="comment-block">
+	                <form action="">
+	                    <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+	                </form>
+	            </div>
+	        </div>
+	
+	        <div class="comment-wrap">
+	            <div class="commentsPhoto">
+	                <div class="commentsAvatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+	            </div>
+	            <div class="comment-block">
+	                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
+	                    sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</p>
+	                <div class="bottom-comment">
+	                    <div class="comment-date">Aug 24, 2014 @ 2:35 PM</div>
+	                    <ul class="comment-actions">
+	                        <li class="complain">Complain</li>
+	                        <li class="reply">Reply</li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	
+	        <div class="comment-wrap">
+	            <div class="commentsPhoto">
+	                <div class="commentsAvatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/felipenogs/128.jpg')"></div>
+	            </div>
+	            <div class="comment-block">
+	                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam.</p>
+	                <div class="bottom-comment">
+	                    <div class="comment-date">Aug 23, 2014 @ 10:32 AM</div>
+	                    <ul class="comment-actions">
+	                        <li class="complain">Complain</li>
+	                        <li class="reply">Reply</li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div id="contact">
+		    <div id="contactForm">
+				<h3>범죄/범죄자 목격 신고</h3>
+				<div class="contactMargin">
+					<div class="contactInput">      
+					    <input type="password" id="singop" required/>
+					    <span class="contactInputBar"></span>
+					    <label>your Email Password</label>
+					</div>
+					<div class="contactInput">      
+					    <input type="text" id="singos" required/>
+					    <span class="contactInputBar"></span>
+					    <label>Subject</label>
+					</div>
+					<div class="contactInput">      
+					    <textarea type="textarea" id="singoc" required></textarea>
+					    <span class="contactInputBar"></span>
+					    <label>Message</label>
+					</div>
+					<button type="button" id="singo">Send</button>
+				</div>
+				<div id="contactMargin2" style="background-image:url(img/112.png); background-size:cover; background-position:center;"></div>
+			</div>
+			<div class="loading-bro">
+				<h1>전송중...</h1>
+				<svg id="load" x="0px" y="0px" viewBox="0 0 150 150">
+			    	<circle id="loading-inner" cx="75" cy="75" r="60"/>
+			 	</svg>
+			</div>
+	    </div>
+    </div>
+    <footer id="footer">
+		<div id="social-platforms">
+	        <h1 style="color:black;"> [ Deus Ex Machina ] </h1>
+	        <h1 style="color:grey"> COPYRIGHT © 2018, CREATOR @ SIS </h1>
+	        <a class="fbtn fbtn-icon fbtn-facebook" href="https://ko-kr.facebook.com/"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+	        <a class="fbtn fbtn-icon fbtn-twitter" href="https://twitter.com/?lang=ko"><i class="fa fa-twitter"></i><span>Twitter</span></a>
+	        <a class="fbtn fbtn-icon fbtn-googleplus" href="https://plus.google.com/?hl=ko"><i class="fa fa-google-plus"></i><span>Google+</span></a>
+	        <a class="fbtn fbtn-icon fbtn-pinterest" href="https://www.pinterest.co.kr/"><i class="fa fa-pinterest"></i><span>Pinterest</span></a>
+	        <a class="fbtn fbtn-icon fbtn-linkedin" href="https://kr.linkedin.com/"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a>
+		</div>
+    </footer>
+</body>
+</html>

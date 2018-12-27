@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="so">
+<!-- 전체목록 -->
+	<select id="soListCnt" parameterType="HashMap" resultType="HashMap">
+		select count(*) as cnt from criminal where delYn = 'N'
+	</select>
+	<select id="soList" resultType="HashMap">
+		select *, left(`addDate`, 10) as date from criminal where delYn = 'N' limit ${pageNum}, 13
+	</select>
+
+<!-- 주소목록 soCheck 0 -->
+	<select id="soRe" resultType="HashMap">
+		select `name`, `realResidence`, left(`addDate`, 10) as date from criminal where realResidence like '%${soName}%' and delYn = 'N' limit ${pageNum}, 7
+	</select>
+	<select id="soReCnt" parameterType="HashMap" resultType="HashMap">
+		select count(*) as cnt from criminal where realResidence like '%${soName}%' and delYn = 'N'
+	</select>
+
+<!-- 이름목록 soCheck 1 -->
+	<select id="soName" resultType="HashMap">
+		select `name`, `realResidence`, left(`addDate`, 10) as date from criminal where name like '%${soName}%' and delYn = 'N' limit ${pageNum}, 7
+	</select>
+	<select id="soCnt" parameterType="HashMap" resultType="HashMap">
+		select count(*) as cnt from criminal where name like '%${soName}%' and delYn = 'N'
+	</select>
+
+<!-- 이름/주소목록 soCheck 2 -->
+	<select id="soReName" resultType="HashMap">
+		select `name`, `realResidence`, left(`addDate`, 10) as date from criminal where name like '%${soName}%' and realResidence like '%${soName2}%' and delYn = 'N' limit ${pageNum}, 7
+	</select>
+	<select id="soReNaCnt" parameterType="HashMap" resultType="HashMap">
+		select count(*) as cnt from criminal where name like '%${soName}%' and realResidence like '%${soName2}%' and delYn = 'N'
+	</select>
+</mapper>
