@@ -15,20 +15,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.java.dao.DaoInterface;
 
 @Controller
-public class SoBoardController {
-
-	@Resource(name="hdConf")
-	Configuration conf;
-	
-	@Autowired
-	DaoInterface di;
-	
-	@Autowired
-	SoBoardInterface lsi;
-	
-	@RequestMapping("/soList")
-	public ModelAndView user(HttpServletRequest req, RedirectAttributes attr, HttpSession session) {
-		return lsi.soList(req, attr, session);
-	}
-	
+public class SoBoardController
+{
+    
+    @Resource(name = "hdConf")
+    Configuration conf;
+    
+    @Autowired
+    DaoInterface di;
+    
+    @Autowired
+    SoBoardInterface lsi;
+    
+    @RequestMapping("/soList")
+    public ModelAndView user(HttpServletRequest req, RedirectAttributes attr, HttpSession session)
+    {
+        return lsi.soList(req, attr, session);
+    }
+    
 }

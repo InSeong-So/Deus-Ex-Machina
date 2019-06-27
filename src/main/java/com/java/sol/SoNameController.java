@@ -14,19 +14,21 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.java.dao.DaoInterface;
 
 @Controller
-public class SoNameController {
-
-	@Resource(name="hdConf")
-	Configuration conf;
-	
-	@Autowired
-	SoNameServiceinterface ssi;
-	
-	@Autowired
-	DaoInterface di;
-	
-	@RequestMapping("/soName")
-	public ModelAndView soName(HttpServletRequest req, RedirectAttributes attr) {
-		return ssi.soName(req, attr);
-	}
+public class SoNameController
+{
+    
+    @Resource(name = "hdConf")
+    Configuration conf;
+    
+    @Autowired
+    SoNameServiceinterface ssi;
+    
+    @Autowired
+    DaoInterface di;
+    
+    @RequestMapping("/soName")
+    public ModelAndView soName(HttpServletRequest req, RedirectAttributes attr)
+    {
+        return ssi.soName(req, attr);
+    }
 }

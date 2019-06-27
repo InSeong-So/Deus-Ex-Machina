@@ -1,9 +1,9 @@
 create table column_list (
-	`no` int,
-	`viewNm` varchar(20),
-	`type` varchar(20),
-	`value` varchar(30),
-	`column` varchar(30)
+    `no` int,
+    `viewNm` varchar(20),
+    `type` varchar(20),
+    `value` varchar(30),
+    `column` varchar(30)
 );
 
 insert into column_list (`viewNm`, `type`, `value`, `column`) values ('crarea','string','범죄분류','범죄분류');

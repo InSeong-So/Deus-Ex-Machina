@@ -17,8 +17,8 @@ By: dave-cheon
 
 /* custom checkbox */
 .btn span.fa {
-	opacity: 0;
+    opacity: 0;
 }
 .btn.active span.fa {
-	opacity: 1;
+    opacity: 1;
 }

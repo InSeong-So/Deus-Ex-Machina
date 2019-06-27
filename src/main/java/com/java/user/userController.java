@@ -17,27 +17,31 @@ import com.java.dao.DaoInterface;
 import com.java.util.HttpUtil;
 
 @Controller
-public class userController {
-
-	@Autowired
-	userServiceInterface usi;
-	
-	@Autowired
-	DaoInterface di;
-	
-	@RequestMapping("/user/{menu}")
-	public ModelAndView user(@PathVariable("menu") String menu, HttpServletRequest req, RedirectAttributes attr, HttpSession session) {
-		return usi.user(menu, req, attr, session);
-	}
-	
-	@RequestMapping("/session")
-	public void Session(HttpServletResponse resp, HttpSession session) {
-		HashMap<String, Object> param = (HashMap<String, Object>) session.getAttribute("user");
-		HttpUtil.makeJsonWriter(resp, param);
-	}
-	
-	@RequestMapping("/sessionDel")
-	public void SessionDel(HttpServletResponse resp, HttpSession session) {
-		session.invalidate();
-	}
+public class userController
+{
+    
+    @Autowired
+    userServiceInterface usi;
+    
+    @Autowired
+    DaoInterface di;
+    
+    @RequestMapping("/user/{menu}")
+    public ModelAndView user(@PathVariable("menu") String menu, HttpServletRequest req, RedirectAttributes attr, HttpSession session)
+    {
+        return usi.user(menu, req, attr, session);
+    }
+    
+    @RequestMapping("/session")
+    public void Session(HttpServletResponse resp, HttpSession session)
+    {
+        HashMap<String, Object> param = (HashMap<String, Object>) session.getAttribute("user");
+        HttpUtil.makeJsonWriter(resp, param);
+    }
+    
+    @RequestMapping("/sessionDel")
+    public void SessionDel(HttpServletResponse resp, HttpSession session)
+    {
+        session.invalidate();
+    }
 }

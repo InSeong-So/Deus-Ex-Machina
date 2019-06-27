@@ -3,35 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> 로그인 </title>
+    <title> 로그인 </title>
     <script src="js/jquery.min.js"></script>
-	<script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function(){
-			$("form").submit(function(event){
-				event.preventDefault();
-				var userId = $("#userId").val();
-				var userPassword = $("#userPassword").val();
-				var d = {"userId" : userId, "userPassword" : userPassword};
-				$.ajax({
-					url : "/user/selectOne",
-					data : d
-				}).done(function(data){
-					var d = JSON.parse(data);
-					console.log("로그인 후에 체크되는거" + d.result);
-					if (d.result == null) {
-						alert("회원 정보가 없습니다.");
-					} else if(d.result != null) {
-		                $("form").fadeOut(500);
-		                $(".wrapper").addClass("form-success");
-		                setTimeout(function() {
-							opener.parent.location = "/";
-	                        window.close();
-		                }, 1000);
-					}
-				});
-           	});
+            $("form").submit(function(event){
+                event.preventDefault();
+                var userId = $("#userId").val();
+                var userPassword = $("#userPassword").val();
+                var d = {"userId" : userId, "userPassword" : userPassword};
+                $.ajax({
+                    url : "/user/selectOne",
+                    data : d
+                }).done(function(data){
+                    var d = JSON.parse(data);
+                    console.log("로그인 후에 체크되는거" + d.result);
+                    if (d.result == null) {
+                        alert("회원 정보가 없습니다.");
+                    } else if(d.result != null) {
+                        $("form").fadeOut(500);
+                        $(".wrapper").addClass("form-success");
+                        setTimeout(function() {
+                            opener.parent.location = "/";
+                            window.close();
+                        }, 1000);
+                    }
+                });
+               });
             $("#memberMove").click(function(){
-            	window.resizeTo(600,900);
+                window.resizeTo(600,900);
                 location = "5member.html";
             });
         });
