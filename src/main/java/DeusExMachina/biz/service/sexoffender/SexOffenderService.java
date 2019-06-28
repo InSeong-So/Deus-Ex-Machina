@@ -25,7 +25,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SexOffenderService implements SexOffenderInterface
 {
-    
     @Autowired
     SessionDaoInterface di;
     
@@ -40,39 +39,33 @@ public class SexOffenderService implements SexOffenderInterface
         HashMap<String, Object> result = new HashMap<String, Object>();
         if (soCheck == 0)
         {
-            /****************************************************************/
             param.put("sql", "selectOne");
             param.put("sqlType", "so.soReCnt");
             result.put("result", di.call(param));
-            /****************************************************************/
+            
             param.put("sql", "selectList");
             param.put("sqlType", "so.soRe");
             result.put("result2", di.call(param));
-            /****************************************************************/
         }
         else if (soCheck == 1)
         {
-            /****************************************************************/
             param.put("sql", "selectOne");
             param.put("sqlType", "so.soCnt");
             result.put("result", di.call(param));
-            /****************************************************************/
+            
             param.put("sql", "selectList");
             param.put("sqlType", "so.soName");
             result.put("result2", di.call(param));
-            /****************************************************************/
         }
         else if (soCheck == 2)
         {
-            /****************************************************************/
             param.put("sql", "selectOne");
             param.put("sqlType", "so.soReNaCnt");
             result.put("result", di.call(param));
-            /****************************************************************/
+
             param.put("sql", "selectList");
             param.put("sqlType", "so.soReName");
             result.put("result2", di.call(param));
-            /****************************************************************/
         }
         return HttpUtil.makeJsonView(result);
     }

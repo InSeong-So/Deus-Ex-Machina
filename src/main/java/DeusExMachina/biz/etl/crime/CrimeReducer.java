@@ -20,13 +20,13 @@ public class CrimeReducer extends Reducer<Text, IntWritable, Text, IntWritable>
     @Override
     protected void reduce(Text key, Iterable<IntWritable> value, Context context) throws IOException, InterruptedException
     {
-        int sum = 0;
+        int cnt = 0;
         for (IntWritable v : value)
         {
-            sum += v.get();
+            cnt += v.get();
         }
         IntWritable result = new IntWritable();
-        result.set(sum);
+        result.set(cnt);
         context.write(key, result);
     }
 }

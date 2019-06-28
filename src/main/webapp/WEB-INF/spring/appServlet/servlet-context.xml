@@ -8,8 +8,7 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-  <!-- DispatcherServlet Context: defines this servlet's request-processing 
-    infrastructure -->
+  <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 
   <!-- Enables the Spring MVC @Controller programming model -->
   <annotation-driven />
@@ -28,5 +27,5 @@
     <beans:property name="prefix" value="/WEB-INF/views/" />
     <beans:property name="suffix" value=".jsp" />
   </beans:bean>
-  <context:component-scan base-package="com.java.**" />
+  <context:component-scan base-package="DeusExMachina.**" />
 </beans:beans>

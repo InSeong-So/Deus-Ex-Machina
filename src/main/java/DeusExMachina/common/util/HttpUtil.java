@@ -24,6 +24,12 @@ import net.sf.json.JSONSerializer;
 public class HttpUtil
 {
     
+    public static final String FILE_DNS = "http://192.168.1.32/resources/";
+    
+    public static final int OK = 1;
+    
+    public static final int NO = 0;
+    
     public static HashMap<String, Object> getParamMap(HttpServletRequest req)
     {
         HashMap<String, Object> result = new HashMap<String, Object>();
@@ -47,8 +53,7 @@ public class HttpUtil
     {
         ModelAndView mav = new ModelAndView();
         
-        JSONObject j = new JSONObject();
-        j = JSONObject.fromObject(JSONSerializer.toJSON(map));
+        JSONObject j = JSONObject.fromObject(JSONSerializer.toJSON(map));
         
         mav.addObject("json", j);
         mav.setViewName("json"); // String "abc"
@@ -62,8 +67,7 @@ public class HttpUtil
         res.setCharacterEncoding("UTF-8");
         res.setContentType("text/html;charset=utf-8");
         
-        JSONObject j = new JSONObject();
-        j = JSONObject.fromObject(JSONSerializer.toJSON(map));
+        JSONObject j = JSONObject.fromObject(JSONSerializer.toJSON(map));
         
         try
         {
@@ -103,11 +107,5 @@ public class HttpUtil
             }
         }
     }
-    
-    public static final String FILE_DNS = "http://192.168.1.32/resources/";
-    
-    public static final int OK = 1;
-    
-    public static final int NO = 0;
     
 }
