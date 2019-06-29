@@ -4,11 +4,13 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import DeusExMachina.common.util.HttpUtil;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -33,6 +35,21 @@ public class HomeController
         catch (IOException e)
         {
             log.debug("지정된 아이콘을 찾을 수 없습니다.");
+        }
+    }
+    
+    @RequestMapping("/")
+    public String main(HttpSession session)
+    {
+        if (HttpUtil.checkLogin(session))
+        {
+            log.debug("메인화면 진입");
+            return "redirect:/resources/0home.html";
+        }
+        else
+        {
+            log.debug("로그인이 되어있지 않습니다.");
+            return "redirect:/resources/0home.html";
         }
     }
 }
