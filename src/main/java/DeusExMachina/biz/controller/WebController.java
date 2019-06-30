@@ -70,16 +70,16 @@ public class WebController
     @RequestMapping("/")
     public String main(HttpSession session)
     {
-        if (HttpUtil.checkLogin(session))
-        {
-            log.debug("메인화면 진입");
+//        if (HttpUtil.checkLogin(session))
+//        {
+//            log.debug("메인화면 진입");
+//            return "redirect:/resources/0home.html";
+//        }
+//        else
+//        {
+//            log.debug("로그인이 되어있지 않습니다.");
             return "redirect:/resources/0home.html";
-        }
-        else
-        {
-            log.debug("로그인이 되어있지 않습니다.");
-            return "redirect:/resources/0home.html";
-        }
+//        }
     }
     
     @RequestMapping("/user/{menu}")
